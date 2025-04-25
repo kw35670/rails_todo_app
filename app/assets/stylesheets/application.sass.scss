@@ -1,5 +1,5 @@
-@use './base/index';
-@use './components/index';
-@use './forms/index';
-@use './layouts/index';
-@use './pages/index';
+@use './base/index' as base;
+@use './components/index' as comp;
+@use './forms/index' as forms;
+@use './layouts/index' as layout;
+@use './pages/index' as pages;
