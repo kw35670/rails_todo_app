@@ -1,0 +1,41 @@
+@use '../base/variables' as var;
+@use '../base/typography' as typo;
+
+.header {
+    background-color: var.$primary-color;
+    color: var.$button-color-black;
+    padding: 25px 0;
+
+    &-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-title {
+        &-text {
+            font-size: typo.$header-font-size;
+            font-weight: bold;
+        }
+    }
+
+    &-nav {
+        &-user {
+            font-size: 16px;
+        }
+
+        &-link {
+            color: var.$button-color-black;
+            padding: 5px 10px;
+            text-decoration: none;
+            transition: var.$hover-animation;
+            &:hover {
+                color: var.$button-color-white;
+            }
+        }
+
+        &-user {
+            margin-right: 10px;
+        }
+    }
+}

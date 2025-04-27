@@ -1,0 +1,15 @@
+<header class="header">
+    <div class="header-container container">
+        <div class="header-title">
+            <h1 class="header-title-text">Ruby_todo_app</h1>
+        </div>
+        <div class="header-nav">
+            <% if user_signed_in? %>
+            <span class="header-nav-user"><%= current_user.email %></span>
+            <%= button_to "ログアウト", destroy_user_session_path, method: :delete, data: { turbo: false }, class: "header-nav-link" %>
+            <% else %>
+            <%= link_to "ログイン", new_user_session_path, class: "header-nav-link" %>
+            <% end %>
+        </div>
+    </div>
+</header>
