@@ -3,6 +3,20 @@
 
     <h2 class="login-title">Ruby_todo_app</h2>
 
+    <% if notice %>
+    <div class="notice-message">
+        <%= notice %>
+    </div>
+    <% end %>
+
+    <% if alert %>
+    <div class="error-message-list">
+        <li class="error-message">
+            <%= alert %>
+        </li>
+    </div>
+    <% end %>
+
     <div class="login-form-field">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "login-form-field-input", placeholder: "ID(メールアドレス)" %>
     </div>
