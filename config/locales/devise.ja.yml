@@ -1,0 +1,30 @@
+ja:
+    devise:
+        shared:
+            links:
+                sign_in: 'ログイン'
+                sign_up: '新規登録'
+                forgot_password: 'パスワードを忘れましたか？'
+        registrations:
+            new:
+                title: '新規登録'
+                email: 'メールアドレス'
+                nickname: 'ニックネーム'
+                password: 'パスワード'
+                password_confirmation: 'パスワード（確認）'
+                submit: '登録'
+            edit:
+                title: 'アカウント編集'
+                email: 'メールアドレス'
+                nickname: 'ニックネーム'
+                current_password: '現在のパスワード'
+                new_password: '新しいパスワード'
+                new_password_confirmation: '新しいパスワード（確認）'
+                submit: '更新'
+        sessions:
+            new:
+                title: 'ログイン'
+                email: 'メールアドレス'
+                password: 'パスワード'
+                remember_me: 'ログイン状態を保持する'
+                submit: 'ログイン'

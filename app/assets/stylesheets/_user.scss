@@ -1,0 +1,84 @@
+.container.signup-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+
+    &-form {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        &-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        &-field {
+            margin-bottom: 15px;
+
+            &-label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+                color: #333;
+            }
+
+            &-input {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 16px;
+
+                &:focus {
+                    outline: none;
+                    border-color: #007bff;
+                }
+            }
+        }
+
+        &-button {
+            text-align: center;
+            margin-top: 20px;
+
+            input[type='submit'] {
+                background: #007bff;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: background 0.3s;
+
+                &:hover {
+                    background: #0056b3;
+                }
+            }
+        }
+    }
+}
+
+.error-message {
+    color: $error-font-color;
+    font-size: $error-font-size;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: $error-bg-color;
+    border: 1px solid $error-border-color;
+    border-radius: 4px;
+    list-style: none;
+}
+
+.notice-message {
+    color: #155724;
+    font-size: 14px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+}
