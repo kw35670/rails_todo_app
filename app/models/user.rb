@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, length: { maximum: 20 }
   validates :email, length: { maximum: 255 }
-  validates :password, length: { minimum: 8 }
+  validates :password, length: { minimum: 8 }, allow_blank: true
 end
