@@ -21,13 +21,14 @@ ja:
     activerecord:
         attributes:
             user:
-                email: メールアドレス
-                password: パスワード
-                password_confirmation: パスワード（確認）
-                nickname: ニックネーム
+                current_password: '現在のパスワード'
+                password: 'パスワード'
+                password_confirmation: 'パスワード（確認）'
+                email: 'メールアドレス'
+                nickname: 'ニックネーム'
         errors:
             messages:
-                record_invalid: 'バリデーションに失敗しました: %{errors}'
+                record_invalid: '入力内容に誤りがあります: %{errors}'
                 restrict_dependent_destroy:
                     has_one: '%{record}が存在しているので削除できません'
                     has_many: '%{record}が存在しているので削除できません'
@@ -53,7 +54,7 @@ ja:
             other_than: 'は%{count}以外の値にしてください'
             present: 'は入力しないでください'
             required: 'を入力してください'
-            taken: 'はすでに存在します'
+            taken: 'はすでに使用されています'
             too_long: 'は%{count}文字以内で入力してください'
             too_short: 'は%{count}文字以上で入力してください'
             wrong_length: 'は%{count}文字で入力してください'

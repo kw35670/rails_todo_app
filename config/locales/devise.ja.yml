@@ -28,3 +28,83 @@ ja:
                 password: 'パスワード'
                 remember_me: 'ログイン状態を保持する'
                 submit: 'ログイン'
+        confirmations:
+            confirmed: "アカウントが確認されました。ログインしています。"
+            send_instructions: "アカウントの確認方法を数分以内にメールでご連絡します。"
+            send_paranoid_instructions: "あなたのメールアドレスが登録されている場合、本人確認用のメールが数分以内に送信されます。"
+        failure:
+            already_authenticated: "すでにログインしています。"
+            inactive: "アカウントが有効化されていません。メールに記載された手順にしたがって、アカウントを有効化してください。"
+            invalid: "%{authentication_keys} もしくはパスワードが不正です。"
+            locked: "アカウントはロックされています。"
+            last_attempt: "あなたのアカウントがロックされようとしています。"
+            not_found_in_database: "%{authentication_keys} もしくはパスワードが不正です。"
+            timeout: "セッションがタイムアウトしました。もう一度ログインしてください。"
+            unauthenticated: "アカウント登録もしくはログインしてください。"
+            unconfirmed: "メールアドレスの本人確認が必要です。"
+        mailer:
+            confirmation_instructions:
+                subject: "アカウントの有効化について"
+            reset_password_instructions:
+                subject: "パスワードの再設定について"
+            unlock_instructions:
+                subject: "アカウントのロック解除について"
+            email_changed:
+                subject: "メールアドレス変更のお知らせ"
+            password_change:
+                subject: "パスワード変更のお知らせ"
+        omniauth_callbacks:
+            failure: "%{kind} アカウントによる認証に失敗しました。理由：（%{reason}）"
+            success: "%{kind} アカウントによる認証に成功しました。"
+        passwords:
+            no_token: "このページにはアクセスできません。パスワード再設定メールのリンクからアクセスされた場合には、URL をご確認ください。"
+            send_instructions: "パスワードの再設定について数分以内にメールでご連絡いたします。"
+            send_paranoid_instructions: "あなたのメールアドレスが登録されている場合、パスワード再設定用のメールが数分以内に送信されます。"
+            updated: "パスワードが正しく変更されました。"
+            updated_not_active: "パスワードが正しく変更されました。"
+        registrations:
+            destroyed: "アカウントを削除しました。またのご利用をお待ちしております。"
+            signed_up: "アカウント登録が完了しました。"
+            signed_up_but_inactive: "アカウントは登録されましたが、まだ有効化されていません。メールに記載された手順にしたがって、アカウントを有効化してください。"
+            signed_up_but_locked: "アカウントは登録されましたが、ロックされています。メールに記載された手順にしたがって、アカウントのロックを解除してください。"
+            signed_up_but_unconfirmed: "アカウント登録を受け付けました。本人確認用のメールを送信しましたので、メールに記載された手順にしたがって、アカウントを有効化してください。"
+            update_needs_confirmation: "アカウント情報を更新しました。変更されたメールアドレスの本人確認のため、本人確認用メールより確認処理をおこなってください。"
+            updated: "アカウント情報を更新しました。"
+            updated_but_not_signed_in: "アカウント情報を更新しました。"
+        sessions:
+            signed_in: "ログインしました。"
+            signed_out: "ログアウトしました。"
+            already_signed_out: "既にログアウト済みです。"
+        unlocks:
+            send_instructions: "アカウントのロック解除方法を数分以内にメールでご連絡します。"
+            send_paranoid_instructions: "あなたのメールアドレスが登録されている場合、アカウントのロック解除方法を数分以内にメールでご連絡します。"
+            unlocked: "アカウントをロック解除しました。"
+        errors:
+            messages:
+                already_confirmed: "は既に登録済みです。ログインしてください。"
+                confirmation_period_expired: "メールアドレスの確認期限が切れました。%{period}以内に確認する必要があります。新しくリクエストしてください。"
+                expired: "有効期限が切れました。新しくリクエストしてください。"
+                not_found: "は見つかりませんでした。"
+                not_locked: "はロックされていません。"
+                not_saved:
+                    one: "エラーが発生したため、%{resource} は保存されませんでした："
+                    other: "%{count} 件のエラーが発生したため、%{resource} は保存されませんでした："
+        attributes:
+            email: "メールアドレス"
+            password: "パスワード"
+            password_confirmation: "パスワード（確認）"
+            current_password: "現在のパスワード"
+            remember_me: "ログイン情報を記憶する"
+            reset_password_token: "パスワード再設定用トークン"
+            reset_password_sent_at: "パスワード再設定メール送信日時"
+            remember_created_at: "ログイン情報記憶日時"
+            sign_in_count: "ログイン回数"
+            current_sign_in_at: "現在のログイン日時"
+            last_sign_in_at: "最終ログイン日時"
+            current_sign_in_ip: "現在のログインIPアドレス"
+            last_sign_in_ip: "最終ログインIPアドレス"
+            locked_at: "ロック日時"
+            failed_attempts: "ログイン失敗回数"
+            unlock_token: "ロック解除用トークン"
+            name: "名前"
+            nickname: "ニックネーム"
