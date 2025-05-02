@@ -3,8 +3,8 @@
 
 .header {
     background-color: var.$primary-color;
-    color: var.$button-color-black;
-    padding: 25px 0;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
     &-container {
         display: flex;
@@ -15,27 +15,32 @@
     &-title {
         &-text {
             font-size: typo.$header-font-size;
-            font-weight: bold;
+            font-weight: typo.$header-font-weight;
         }
     }
 
     &-nav {
+        &-user-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         &-user {
-            font-size: 16px;
+            display: inline-block;
+            padding: 8px 16px;
         }
 
         &-link {
-            color: var.$button-color-black;
-            padding: 5px 10px;
+            display: inline-block;
+            padding: 8px 16px;
             text-decoration: none;
-            transition: var.$hover-animation;
-            &:hover {
-                color: var.$button-color-white;
-            }
-        }
+            color: black;
+            transition: all 0.3s ease;
 
-        &-user {
-            margin-right: 10px;
+            &:hover {
+                opacity: 0.5;
+            }
         }
     }
 }
