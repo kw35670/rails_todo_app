@@ -5,8 +5,10 @@
         </div>
         <div class="header-nav">
             <% if user_signed_in? %>
-            <span class="header-nav-user"><%= current_user.nickname %></span>
-            <%= button_to "ログアウト", destroy_user_session_path, method: :delete, data: { turbo: false }, class: "header-nav-link" %>
+            <div class="header-nav-user-container">
+                <span class="header-nav-user"><%= current_user.nickname %></span>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-nav-link" %>
+            </div>
             <% else %>
             <%= link_to "ログイン", new_user_session_path, class: "header-nav-link" %>
             <% end %>
