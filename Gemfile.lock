@@ -201,6 +201,8 @@ GEM
     orm_adapter (0.5.0)
     ostruct (0.6.1)
     parallel (1.26.3)
+    paranoia (3.0.1)
+      activerecord (>= 6, < 8.1)
     parser (3.3.7.4)
       ast (~> 2.4.1)
       racc
@@ -416,6 +418,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kamal
+  paranoia
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.2)

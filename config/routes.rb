@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "tasks/index"
   devise_for :users
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
@@ -14,5 +15,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "tasks#index"
 end
