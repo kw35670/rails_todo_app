@@ -9,6 +9,10 @@ module TodoApp
     config.load_defaults 7.1
     config.autoload_lib(ignore: %w(assets tasks))
 
+    # Turboの設定
+    config.action_view.form_with_generates_remote_forms = true
+    config.action_view.form_with_generates_ids = true
+
     config.generators do |g|
       g.assets false
       g.helper false

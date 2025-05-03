@@ -1,0 +1,26 @@
+<%= form_with(model: task) do |form| %>
+<% if task.errors.any? %>
+<div class="error-messages">
+    <h2><%= pluralize(task.errors.count, "件のエラー") %> が発生しました:</h2>
+    <ul>
+        <% task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div class="field">
+    <%= form.label :name, "タスク名" %>
+    <%= form.text_field :name %>
+</div>
+
+<div class="field">
+    <%= form.label :status, "ステータス" %>
+    <%= form.select :status, Task.statuses.keys.map { |s| [I18n.t("tasks.status.#{s}"), s] } %>
+</div>
+
+<div class="actions">
+    <%= form.submit %>
+</div>
+<% end %>

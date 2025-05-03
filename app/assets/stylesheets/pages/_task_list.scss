@@ -74,6 +74,20 @@
             }
         }
     }
+
+    &-delete-form {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    &-delete-button {
+        display: inline;
+        margin: 0;
+        padding: 0;
+    }
+
     &-add-button {
         position: fixed;
         bottom: 4%;
