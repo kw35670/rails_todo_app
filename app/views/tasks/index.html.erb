@@ -1,2 +1,113 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<div class="container task-container">
+    <div class="task-team">
+        <h2 class="task-team-header">チーム名</h2>
+        <div class="task-team-icons">
+            <%= image_tag "編集アイコン.png", class: "task-team-icon" %>
+            <%= image_tag "trash-box.png", class: "task-team-icon" %>
+            <%= image_tag "リンクアイコン.png", class: "task-team-icon" %>
+        </div>
+    </div>
+    <div class="task-lists">
+        <div class="task-list">
+            <div class="task-list-container">
+                <h3 class="task-list-header">
+                    未完了
+                </h3>
+                <ul class="task-list-items">
+                    <% @tasks.where(status: 0).each do |task| %>
+                    <li class="task-list-item">
+                        <div class="task-list-item-content">
+                            <h4 class="task-list-item-title"><%= task.name %></h4>
+                            <div class="task-list-item-icons">
+                                <%= link_to edit_task_path(task) do %>
+                                <%= image_tag "編集アイコン.png", class: "task-list-item-icon" %>
+                                <% end %>
+                                <%= button_to task_path(task), 
+                                    method: :delete,
+                                    form: { 
+                                        data: { 
+                                            turbo_confirm: '本当に削除しますか？'
+                                        },
+                                        class: "task-delete-form"
+                                    },
+                                    class: "task-delete-button" do %>
+                                <%= image_tag "trash-box.png", class: "task-list-item-icon" %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+        <div class="task-list">
+            <div class="task-list-container">
+                <h3 class="task-list-header">
+                    着手
+                </h3>
+                <ul class="task-list-items">
+                    <% @tasks.where(status: 1).each do |task| %>
+                    <li class="task-list-item">
+                        <div class="task-list-item-content">
+                            <h4 class="task-list-item-title"><%= task.name %></h4>
+                            <div class="task-list-item-icons">
+                                <%= link_to edit_task_path(task) do %>
+                                <%= image_tag "編集アイコン.png", class: "task-list-item-icon" %>
+                                <% end %>
+                                <%= button_to task_path(task), 
+                                    method: :delete,
+                                    form: { 
+                                        data: { 
+                                            turbo_confirm: '本当に削除しますか？'
+                                        },
+                                        class: "task-delete-form"
+                                    },
+                                    class: "task-delete-button" do %>
+                                <%= image_tag "trash-box.png", class: "task-list-item-icon" %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+        <div class="task-list">
+            <div class="task-list-container">
+                <h3 class="task-list-header">
+                    完了
+                </h3>
+                <ul class="task-list-items">
+                    <% @tasks.where(status: 2).each do |task| %>
+                    <li class="task-list-item">
+                        <div class="task-list-item-content">
+                            <h4 class="task-list-item-title"><%= task.name %></h4>
+                            <div class="task-list-item-icons">
+                                <%= link_to edit_task_path(task) do %>
+                                <%= image_tag "編集アイコン.png", class: "task-list-item-icon" %>
+                                <% end %>
+                                <%= button_to task_path(task), 
+                                    method: :delete,
+                                    form: { 
+                                        data: { 
+                                            turbo_confirm: '本当に削除しますか？'
+                                        },
+                                        class: "task-delete-form"
+                                    },
+                                    class: "task-delete-button" do %>
+                                <%= image_tag "trash-box.png", class: "task-list-item-icon" %>
+                                <% end %>
+                            </div>
+                        </div>
+                    </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="task-add-button">
+        <%= link_to new_task_path do %>
+        <%= image_tag "plus-icon.png", class: "task-add-button-icon" %>
+        <% end %>
+    </div>
+</div>

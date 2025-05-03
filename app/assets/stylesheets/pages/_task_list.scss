@@ -1,0 +1,103 @@
+@use '../base/typography' as typo;
+@use '../base/variables' as var;
+
+.task {
+    &-container {
+        margin-top: 69px;
+    }
+    &-team {
+        display: flex;
+        &-header {
+            font-size: typo.$team-header-font-size;
+        }
+
+        &-icons {
+            display: flex;
+            margin-left: 32px;
+        }
+        &-icon {
+            width: 30px;
+            height: 30px;
+
+            &:not(:first-child) {
+                margin-left: 14px;
+            }
+        }
+    }
+
+    &-lists {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 31px;
+    }
+    &-list {
+        width: calc(33.333333% - 14px);
+        min-height: 411px;
+        padding: 11px;
+        background-color: var.$primary-color;
+        &-header {
+            font-weight: normal;
+            font-size: typo.$todo-title-font-size;
+        }
+        &-container {
+        }
+        &-items {
+            padding: 0;
+            margin: 20px 0 0 0;
+        }
+        &-item {
+            background-color: white;
+            list-style: none;
+            padding: 13px 10px;
+            &-content {
+                display: flex;
+                justify-content: space-between;
+            }
+            &-title {
+                font-size: typo.$todo-title-font-size;
+                font-weight: normal;
+            }
+            &-icons {
+                display: flex;
+            }
+            &-icon {
+                width: 34px;
+                height: 34px;
+
+                &:not(:first-child) {
+                    margin-left: 8px;
+                }
+            }
+
+            &:not(:first-child) {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    &-delete-form {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    &-delete-button {
+        display: inline;
+        margin: 0;
+        padding: 0;
+    }
+
+    &-add-button {
+        position: fixed;
+        bottom: 4%;
+        right: 4%;
+        width: 200px;
+        height: 200px;
+
+        &-icon {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

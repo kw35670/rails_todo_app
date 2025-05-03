@@ -1,0 +1,104 @@
+@use '../components/button' as button;
+@use '../base/variables' as var;
+@use '../base/typography' as typo;
+
+.task {
+    &-edit {
+        &-container {
+            width: 49.8%;
+            margin-top: 154px;
+            background-color: var.$primary-color;
+            padding-top: 20px;
+            padding-bottom: 40px;
+            max-width: 632px;
+        }
+
+        &-title {
+            font-size: typo.$input-header-font-size;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        &-form {
+            width: 80%;
+            margin: 0 auto;
+
+            &-container {
+                margin-top: 40px;
+            }
+
+            &-label {
+                display: block;
+                font-size: typo.$input-title-font-size;
+            }
+
+            &-text-field-container {
+            }
+
+            &-text-field {
+                width: 100%;
+                padding: var.$input-padding;
+                background-color: #fff;
+                border: 1px solid black;
+            }
+
+            &-select-container {
+                margin-top: 25px;
+                position: relative;
+                &::before {
+                    content: '';
+                    width: 10px;
+                    height: 10px;
+                    border-top: solid 2px #000;
+                    border-right: solid 2px #000;
+                    position: absolute;
+                    left: 10px;
+                    top: 30px;
+                    transform: rotate(135deg);
+                    z-index: 10;
+                }
+            }
+
+            &-select {
+                width: 100%;
+                display: inline-block;
+                max-width: 130px;
+                padding: var.$input-padding;
+                background-color: #fff;
+                border: 1px solid black;
+                text-align: center;
+                position: relative;
+                &::after {
+                    content: '-';
+                    width: 10px;
+                    height: 10px;
+                    border-top: solid 2px #5070e3;
+                    border-right: solid 2px #5070e3;
+                    position: absolute;
+                    left: 10px;
+                    top: 8px;
+                }
+            }
+
+            &-button-container {
+                margin-top: 47px;
+            }
+
+            &-back-button {
+                margin-right: 40px;
+                @extend .button;
+                background-color: var.$button-color-black;
+                color: white;
+                text-decoration: none;
+            }
+
+            &-add-button {
+                @extend .button;
+                background-color: var.$button-color-white;
+                color: black;
+                text-decoration: none;
+                border: 1px solid var.$button-color-black;
+            }
+        }
+    }
+}

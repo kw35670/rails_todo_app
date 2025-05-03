@@ -14,10 +14,19 @@
     margin-top: 10px;
 }
 
+.error-messages {
+    margin-top: 13px;
+
+    ul {
+        padding-left: 0;
+    }
+}
+
 .error-message {
     color: var.$error-font-color;
     font-size: typo.$error-font-size;
     text-align: center;
+    list-style: none;
 }
 
 .notice-message {
@@ -25,4 +34,9 @@
     color: var.$notice-font-color;
     font-size: typo.$notice-font-size;
     text-align: center;
+}
+
+input {
+    background-color: white;
+    border: 1px solid black;
 }

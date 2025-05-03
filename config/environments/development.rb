@@ -28,6 +28,9 @@ Rails.application.configure do
   # Change to :null_store to avoid any caching.
   config.cache_store = :memory_store
 
+  # 開発モードでアセットをコンパイルする設定（これが `true` でないと画像が読み込まれません）
+  config.assets.compile = true
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
