@@ -26,12 +26,24 @@ ja:
                 password_confirmation: 'パスワード（確認）'
                 email: 'メールアドレス'
                 nickname: 'ニックネーム'
+            task:
+                name: タイトル
+                status: ステータス
         errors:
             messages:
                 record_invalid: '入力内容に誤りがあります: %{errors}'
                 restrict_dependent_destroy:
                     has_one: '%{record}が存在しているので削除できません'
                     has_many: '%{record}が存在しているので削除できません'
+            models:
+                task:
+                    attributes:
+                        name:
+                            blank: を入力してください
+                            too_short: は%{count}文字以上で入力してください
+                            too_long: は%{count}文字以内で入力してください
+                        status:
+                            blank: を選択してください
     errors:
         format: '%{attribute}%{message}'
         messages:
@@ -123,3 +135,8 @@ ja:
             long: '%Y/%m/%d %H:%M'
             short: '%m/%d %H:%M'
         pm: 午後
+    tasks:
+        status:
+            not_started: '未完了'
+            in_progress: '着手'
+            completed: '完了'

@@ -19,7 +19,14 @@
         </div>
         <div class="task-edit-form-select-container">
             <%= f.label :status, "ステータス", class: "task-edit-form-label" %>
-            <%= f.select :status, [["未完了", 0], ["着手", 1], ["完了", 2]], {}, class: "task-edit-form-select" %>
+            <%= f.select :status, 
+                [
+                    ["未完了", :not_started],
+                    ["着手", :in_progress],
+                    ["完了", :completed]
+                ], 
+                { selected: @task.status || :not_started }, 
+                { class: "task-edit-form-select" } %>
         </div>
         <div class="task-edit-form-button-container">
             <%= link_to '戻る', root_path, class: 'task-edit-form-back-button' %>

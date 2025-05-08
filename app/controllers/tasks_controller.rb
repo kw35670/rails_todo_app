@@ -13,8 +13,8 @@ class TasksController < ApplicationController
   end
 
   def create
-    status = params[:task][:status].to_i
-    @task = Task.new(task_params.merge(status: status))
+    @task = Task.new(task_params)
+    # @task.team_id = 1  # 仮のチームID
     if @task.save
       redirect_to tasks_path, notice: 'タスクが作成されました'
     else
@@ -23,12 +23,14 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = Task.find(params[:id])
   end
 
   def update
     if @task.update(task_params)
       redirect_to tasks_path, notice: 'タスクが更新されました'
     else
+      flash.now[:alert] = 'タスクの更新に失敗しました'
       render :edit, status: :unprocessable_entity
     end
   end
@@ -45,6 +47,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :status, :created_user, :update_user)
+    params.require(:task).permit(:name, :status)
   end
 end
