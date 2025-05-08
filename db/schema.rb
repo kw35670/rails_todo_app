@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_02_071609) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_08_092102) do
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.integer "status"
@@ -18,6 +18,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_02_071609) do
     t.string "update_user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "team_id"
   end
 
   create_table "team_users", force: :cascade do |t|
