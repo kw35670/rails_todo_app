@@ -14,30 +14,62 @@ TeamUser.delete_all
 User.delete_all
 Team.delete_all
 
-# Teamデータの作成
-Team.create([
-    { name: "チーム1", created_at: "2025-01-01 00:00:00", updated_at: "2025-01-01 00:00:00" },
-    { name: "チーム2", created_at: "2025-01-01 00:00:00", updated_at: "2025-01-01 00:00:00" },
-    { name: "チーム3", created_at: "2025-01-01 00:00:00", updated_at: "2025-01-01 00:00:00" }
-])
+# チームの作成
+team1 = Team.create!(name: "開発チーム")
+team2 = Team.create!(name: "デザインチーム")
 
-# Userデータの作成
-User.create([
-    { nickname: "ユーザー1", email: "user1@example.com", password: "password123", deleted_at: nil, created_at: "2025-01-01 00:00:00", updated_at: "2025-01-01 00:00:00" },
-    { nickname: "ユーザー2", email: "user2@example.com", password: "password123", deleted_at: nil, created_at: "2025-01-01 00:00:00", updated_at: "2025-01-01 00:00:00" },
-    { nickname: "ユーザー3", email: "user3@example.com", password: "password123", deleted_at: nil, created_at: "2025-01-01 00:00:00", updated_at: "2025-01-01 00:00:00" }
-])
+# ユーザーの作成
+user1 = User.create!(
+  email: "user1@example.com",
+  password: "password",
+  password_confirmation: "password",
+  nickname: "ユーザー1"
+)
 
-# TeamUserデータの作成
-TeamUser.create([
-    { team_id: 1, user_id: 1, created_at: "2025-01-01 00:00:00", updated_at: "2025-01-01 00:00:00" },
-    { team_id: 1, user_id: 2, created_at: "2025-01-01 00:00:00", updated_at: "2025-01-01 00:00:00" },
-    { team_id: 1, user_id: 3, created_at: "2025-01-01 00:00:00", updated_at: "2025-01-01 00:00:00" }
-])
+user2 = User.create!(
+  email: "user2@example.com",
+  password: "password",
+  password_confirmation: "password",
+  nickname: "ユーザー2"
+)
 
-# Taskデータの作成
-Task.create([
-    { name: "タスク1", status: :not_started, created_user: "ユーザー1", update_user: "ユーザー1", created_at: "2025-01-01 00:00:00", updated_at: "2025-01-01 00:00:00" },
-    { name: "タスク2", status: :in_progress, created_user: "ユーザー2", update_user: "ユーザー2", created_at: "2025-01-01 00:00:00", updated_at: "2025-01-01 00:00:00" },
-    { name: "タスク3", status: :completed, created_user: "ユーザー3", update_user: "ユーザー3", created_at: "2025-01-01 00:00:00", updated_at: "2025-01-01 00:00:00" }
-])
+# チームとユーザーの関連付け
+TeamUser.create!(
+  team: team1,
+  user: user1
+)
+
+TeamUser.create!(
+  team: team1,
+  user: user2
+)
+
+TeamUser.create!(
+  team: team2,
+  user: user1
+)
+
+# タスクの作成
+Task.create!(
+  name: "フロントエンド開発",
+  status: :in_progress,
+  team: team1,
+  created_user: user1.nickname,
+  update_user: user1.nickname
+)
+
+Task.create!(
+  name: "バックエンド開発",
+  status: :not_started,
+  team: team1,
+  created_user: user2.nickname,
+  update_user: user2.nickname
+)
+
+Task.create!(
+  name: "UIデザイン",
+  status: :completed,
+  team: team2,
+  created_user: user1.nickname,
+  update_user: user1.nickname
+)

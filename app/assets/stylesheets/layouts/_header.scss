@@ -26,6 +26,49 @@
             gap: 10px;
         }
 
+        &-teams-container {
+            position: relative;
+
+            &:hover {
+                .header-nav-teams {
+                    display: block;
+                }
+
+                .header-nav-teams-title {
+                    background-color: rgba(255, 255, 255, 0.2);
+                }
+            }
+        }
+
+        &-teams-title {
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        &-teams {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 8px 0;
+            min-width: 200px;
+            z-index: 1000;
+
+            .user-team-nav {
+                padding: 8px 16px;
+                transition: background-color 0.3s ease;
+                cursor: pointer;
+                list-style: none;
+
+                &:hover {
+                    background-color: #f5f5f5;
+                }
+            }
+        }
+
         &-user {
             display: inline-block;
             padding: 8px 16px;

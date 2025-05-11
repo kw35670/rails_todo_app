@@ -1,22 +1,33 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: [:index, :new, :create]
 
   def index
-    @tasks = Task.all
+    @team ||= current_user.last_joined_team if current_user
+    @tasks = if @team
+      Task.for_team(@team.id)
+    else
+      Task.for_user_teams(current_user)
+    end
   end
 
   def show
   end
 
   def new
-    @task = Task.new
+    @task = @team ? Task.new(team_id: @team.id) : Task.new
+  end
+
+  def edit
   end
 
   def create
     @task = Task.new(task_params)
-    # @task.team_id = 1  # 仮のチームID
+    @task.created_user = current_user.nickname
+    @task.update_user = current_user.nickname
+
     if @task.save
-      redirect_to tasks_path, notice: 'タスクが作成されました'
+      redirect_to team_tasks_path(@task.team), notice: 'タスクが正常に作成されました。'
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,17 +38,17 @@ class TasksController < ApplicationController
   end
 
   def update
-    if @task.update(task_params)
-      redirect_to tasks_path, notice: 'タスクが更新されました'
+    if @task.update(task_params.merge(update_user: current_user.nickname))
+      redirect_to team_tasks_path(@task.team), notice: 'タスクが正常に更新されました。'
     else
-      flash.now[:alert] = 'タスクの更新に失敗しました'
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
+    team = @task.team
     @task.destroy
-    redirect_to root_path, notice: 'タスクが削除されました'
+    redirect_to team_tasks_path(team), notice: 'タスクが正常に削除されました。'
   end
 
   private
@@ -46,7 +57,11 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
+  def set_team
+    @team = Team.find(params[:team_id]) if params[:team_id]
+  end
+
   def task_params
-    params.require(:task).permit(:name, :status)
+    params.require(:task).permit(:name, :status, :team_id)
   end
 end

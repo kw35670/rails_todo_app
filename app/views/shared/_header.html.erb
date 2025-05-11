@@ -6,8 +6,22 @@
         <div class="header-nav">
             <% if user_signed_in? %>
             <div class="header-nav-user-container">
+                <div class="header-nav-teams-container">
+                    <% if current_user_teams.present? %>
+                    <p class="header-nav-teams-title">チーム一覧</p>
+                    <ul class="header-nav-teams">
+                        <% current_user_teams.each do |team| %>
+                        <li class="user-team-nav">
+                            <%= team.name %>
+                        </li>
+                        <% end %>
+                    </ul>
+                    <% else %>
+                    <p class="header-nav-teams-title">所属チームなし</p>
+                    <% end %>
+                </div>
                 <span class="header-nav-user"><%= current_user.nickname %></span>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-nav-link" %>
+                <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "header-nav-link" %>
             </div>
             <% else %>
             <%= link_to "ログイン", new_user_session_path, class: "header-nav-link" %>

@@ -28,8 +28,15 @@
                 { selected: @task.status || :not_started }, 
                 { class: "task-edit-form-select" } %>
         </div>
+        <div class="task-edit-form-select-container">
+            <%= f.label :team_id, "チーム", class: "task-edit-form-label" %>
+            <%= f.select :team_id, 
+                current_user.teams.map { |team| [team.display_name, team.id] },
+                { selected: @team&.id },
+                { class: "task-edit-form-select" } %>
+        </div>
         <div class="task-edit-form-button-container">
-            <%= link_to '戻る', root_path, class: 'task-edit-form-back-button' %>
+            <%= link_to '戻る', @team ? team_tasks_path(@team) : tasks_path, class: 'task-edit-form-back-button' %>
             <%= f.submit "追加", class: 'task-edit-form-add-button' %>
         </div>
         <% end %>

@@ -80,3 +80,46 @@
 .actions input[type='submit']:hover {
     background-color: #0056b3;
 }
+
+.header-nav-teams {
+    display: flex;
+    gap: 1rem;
+    margin-right: 1rem;
+}
+
+.header-nav-teams .header-nav-link {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    transition: background-color 0.2s;
+}
+
+.header-nav-teams .header-nav-link:hover {
+    background-color: #e0e0e0;
+}
+
+.user-team-navs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.user-team-nav {
+    margin: 0;
+}
+
+.user-team-nav .header-nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    transition: background-color 0.2s;
+    text-decoration: none;
+    color: #333;
+}
+
+.user-team-nav .header-nav-link:hover {
+    background-color: #e0e0e0;
+}
