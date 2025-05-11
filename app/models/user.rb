@@ -19,4 +19,8 @@ class User < ApplicationRecord
   has_many :team_users
   has_many :teams, through: :team_users
   has_many :tasks
+
+  def last_joined_team
+    team_users.order(created_at: :desc).first&.team
+  end
 end

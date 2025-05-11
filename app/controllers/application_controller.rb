@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user!
+  helper_method :current_user_teams
 
   protected
 
@@ -13,5 +15,16 @@ class ApplicationController < ActionController::Base
 
   def after_sign_out_path_for(resource_or_scope)
     new_user_session_path
+  end
+
+  private
+
+  def current_user_teams
+    return [] unless user_signed_in?
+    @current_user_teams ||= begin
+      teams = current_user.teams
+      Rails.logger.debug "Current user teams: #{teams.inspect}"
+      teams
+    end
   end
 end
