@@ -1,31 +1,32 @@
 <header class="header">
-    <div class="header-container container">
-        <div class="header-title">
-            <h1 class="header-title-text">Ruby_todo_app</h1>
-        </div>
-        <div class="header-nav">
-            <% if user_signed_in? %>
-            <div class="header-nav-user-container">
-                <div class="header-nav-teams-container">
-                    <% if current_user_teams.present? %>
-                    <p class="header-nav-teams-title">チーム一覧</p>
-                    <ul class="header-nav-teams">
-                        <% current_user_teams.each do |team| %>
-                        <li class="user-team-nav">
-                            <%= team.name %>
-                        </li>
-                        <% end %>
-                    </ul>
-                    <% else %>
-                    <p class="header-nav-teams-title">所属チームなし</p>
-                    <% end %>
-                </div>
-                <span class="header-nav-user"><%= current_user.nickname %></span>
-                <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "header-nav-link" %>
-            </div>
-            <% else %>
-            <%= link_to "ログイン", new_user_session_path, class: "header-nav-link" %>
-            <% end %>
-        </div>
+  <div class="header-container container">
+    <div class="header-title">
+      <h1 class="header-title-text">Ruby_todo_app</h1>
     </div>
+    <div class="header-nav">
+      <% if user_signed_in? %>
+      <div class="header-nav-user-container">
+        <%= link_to "＋チーム作成", new_team_path, class: "header-nav-link" %>
+        <div class="header-nav-teams-container">
+          <% if current_user_teams.present? %>
+          <p class="header-nav-teams-title">チーム一覧</p>
+          <ul class="header-nav-teams">
+            <% current_user_teams.each do |team| %>
+            <li class="user-team-nav">
+              <%= link_to team.name, team_tasks_path(team), class: "header-nav-team-link" %>
+            </li>
+            <% end %>
+          </ul>
+          <% else %>
+          <p class="header-nav-teams-title">所属チームなし</p>
+          <% end %>
+        </div>
+        <span class="header-nav-user"><%= current_user.nickname %></span>
+        <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "header-nav-link" %>
+      </div>
+      <% else %>
+      <%= link_to "ログイン", new_user_session_path, class: "header-nav-link" %>
+      <% end %>
+    </div>
+  </div>
 </header>
