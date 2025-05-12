@@ -29,12 +29,17 @@ ja:
             task:
                 name: タイトル
                 status: ステータス
+            team:
+                name: チーム名
         errors:
             messages:
                 record_invalid: '入力内容に誤りがあります: %{errors}'
                 restrict_dependent_destroy:
                     has_one: '%{record}が存在しているので削除できません'
                     has_many: '%{record}が存在しているので削除できません'
+                blank: を入力してください
+                too_short: は%{count}文字以上で入力してください
+                too_long: は%{count}文字以下で入力してください
             models:
                 task:
                     attributes:
