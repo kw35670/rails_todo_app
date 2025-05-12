@@ -1,7 +1,7 @@
 class Team < ApplicationRecord
-  has_many :team_users
+  has_many :team_users, dependent: :destroy
   has_many :users, through: :team_users
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
 
   def display_name
     if name.length > 5
