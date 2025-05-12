@@ -28,6 +28,8 @@ class TeamsController < ApplicationController
 
   def destroy
     @team = Team.find(params[:id])
+    @team.tasks.destroy_all
+    @team.team_users.destroy_all
     @team.destroy
     redirect_to root_path, notice: "チームが削除されました"
   end
