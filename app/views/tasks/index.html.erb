@@ -1,4 +1,5 @@
 <div class="container task-container">
+  <% if @team %>
   <div class="task-team">
     <h2 class="task-team-header"><%= @team.name %></h2>
     <div class="task-team-icons">
@@ -121,4 +122,10 @@
     <%= image_tag "plus-icon.png", class: "task-add-button-icon" %>
     <% end %>
   </div>
+  <% else %>
+  <div class="task-team-message-container">
+    <p class="task-team-message">チームに所属していません。<br>チームを新規作成するか既存のチームに招待してもらいましょう。
+    </p>
+  </div>
+  <% end%>
 </div>

@@ -7,6 +7,7 @@
     }
     &-team {
         display: flex;
+
         &-header {
             font-size: typo.$team-header-font-size;
         }
@@ -22,6 +23,13 @@
             &:not(:first-child) {
                 margin-left: 14px;
             }
+        }
+        &-message-container {
+            margin-top: 313px;
+            text-align: center;
+        }
+        &-message {
+            font-size: typo.$team-header-font-size;
         }
     }
 

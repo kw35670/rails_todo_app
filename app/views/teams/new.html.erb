@@ -18,7 +18,7 @@
       <%= f.text_field :name, class: "team-edit-form-input", placeholder: "例）開発チーム" %>
     </div>
     <div class="team-edit-button-container">
-      <%= link_to "戻る", team_tasks_path(@team), class: "team-edit-form-back-button" %>
+      <%= link_to "戻る", root_path, class: "team-edit-form-back-button" %>
       <%= f.submit "追加", class: "team-edit-form-button"%>
     </div>
     <% end %>
