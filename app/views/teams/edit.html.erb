@@ -1,2 +1,17 @@
-<h1>Teams#edit</h1>
-<p>Find me in app/views/teams/edit.html.erb</p>
+<div class="container team-edit-container">
+  <div class="team-edit-form-container">
+    <h2 class="team-edit-form-title">
+      チーム更新
+    </h2>
+    <%= form_with model: @team, class: "team-edit-form", local: true do |f| %>
+    <div class="team-edit-label-container">
+      <%= f.label :name, "チーム名", class: "team-edit-form-label" %>
+      <%= f.text_field :name, class: "team-edit-form-input", placeholder: "例）開発チーム" %>
+    </div>
+    <div class="team-edit-button-container">
+      <%= link_to "戻る", team_tasks_path(@team), class: "team-edit-form-back-button" %>
+      <%= f.submit "更新", class: "team-edit-form-button"%>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -32,6 +32,9 @@
         color: var.$notice-font-color;
         font-size: typo.$notice-font-size;
         text-align: center;
+        background-color: var.$notice-background-color;
+        padding: 10px;
+        border-radius: 4px;
     }
 
     input {

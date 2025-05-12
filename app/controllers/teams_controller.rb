@@ -7,7 +7,7 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
     if @team.save
       current_user.teams << @team
-      redirect_to root_path, notice: "チームが作成されました"
+      redirect_to team_tasks_path(@team), notice: "チームが作成されました"
     else
       render :new
     end
@@ -15,6 +15,21 @@ class TeamsController < ApplicationController
 
   def edit
     @team = Team.find(params[:id])
+  end
+
+  def update
+    @team = Team.find(params[:id])
+    if @team.update(team_params)
+      redirect_to team_tasks_path(@team), notice: "チームが更新されました"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @team = Team.find(params[:id])
+    @team.destroy
+    redirect_to root_path, notice: "チームが削除されました"
   end
 
   private
