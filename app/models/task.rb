@@ -5,7 +5,7 @@ class Task < ApplicationRecord
   validates :name, presence: true, length: { minimum: 1, maximum: 100 }
   validates :status, presence: true
 
-  enum :status, [:not_started, :in_progress, :completed]
+  enum :status, { not_started: 0, in_progress: 1, completed: 2 }
 
   after_initialize :set_default_status, if: :new_record?
 

@@ -10,10 +10,11 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :email, :password, :password_confirmation, :current_password])
+    devise_parameter_sanitizer.permit(:account_update,
+                                      keys: [:nickname, :email, :password, :password_confirmation, :current_password])
   end
 
-  def after_sign_out_path_for(resource_or_scope)
+  def after_sign_out_path_for(_resource_or_scope)
     new_user_session_path
   end
 
@@ -21,9 +22,10 @@ class ApplicationController < ActionController::Base
 
   def current_user_teams
     return [] unless user_signed_in?
+
     @current_user_teams ||= begin
       teams = current_user.teams
-      Rails.logger.debug "Current user teams: #{teams.inspect}"
+      Rails.logger.debug { "Current user teams: #{teams.inspect}" }
       teams
     end
   end

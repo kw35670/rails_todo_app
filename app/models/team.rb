@@ -9,7 +9,7 @@ class Team < ApplicationRecord
 
   def display_name
     if name.length > 5
-      name[0..4] + "..."
+      "#{name[0..4]}..."
     else
       name
     end
@@ -20,5 +20,4 @@ class Team < ApplicationRecord
   def generate_invite_token
     self.invite_token = SecureRandom.urlsafe_base64(16)
   end
-
 end
