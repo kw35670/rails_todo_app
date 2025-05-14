@@ -1,0 +1,9 @@
+<div class="container invite-container">
+  <h2 class="invite-header">「<%= @team_invite.name %>」に招待されています</h2>
+  <%= form_with url: join_team_path(@team_invite.invite_token), method: :post, class: "invite-form", local: true, data: { turbo: false } do %>
+  <div class="invite-button-container">
+    <%= link_to "キャンセル", root_path, class: "invite-back-button" %>
+    <%= submit_tag "参加する", class: "invite-button" %>
+  </div>
+  <% end %>
+</div>

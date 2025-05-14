@@ -12,14 +12,6 @@ class Task < ApplicationRecord
   scope :for_team, ->(team_id) { where(team_id: team_id) }
   scope :for_user_teams, ->(user) { where(team_id: user.teams.pluck(:id)) }
 
-  def display_name
-    if name.length > 10
-      name[0..8] + "..."
-    else
-      name
-    end
-  end
-
   private
 
   def set_default_status

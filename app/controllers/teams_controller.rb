@@ -1,4 +1,6 @@
 class TeamsController < ApplicationController
+  # skip_before_action :verify_authenticity_token, only: [:join]
+
   def new
     @team = Team.new
   end
@@ -23,6 +25,23 @@ class TeamsController < ApplicationController
       redirect_to team_tasks_path(@team), notice: "チームが更新されました"
     else
       render :edit
+    end
+  end
+
+  def invite
+    @team_invite = Team.find_by(invite_token: params[:invite_token])
+    unless @team_invite
+      redirect_to root_path, alert: "無効な招待リンクです"
+    end
+  end
+
+  def join
+    @invite_team = Team.find_by(invite_token: params[:invite_token])
+    if @invite_team && !current_user.teams.include?(@invite_team)
+      current_user.teams << @invite_team
+      redirect_to team_tasks_path(@invite_team), notice: "チームに参加しました"
+    else
+      redirect_to root_path, alert: "参加できませんでした"
     end
   end
 

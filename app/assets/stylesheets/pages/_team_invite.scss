@@ -1,0 +1,45 @@
+@use '../base/variables' as var;
+@use '../base/typography' as typo;
+@use '../components/button' as button;
+
+.invite {
+  &-container {
+    max-width: 632px;
+    margin: 178px auto 0 auto;
+    padding: 72px 0 72px 0;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  &-header {
+    text-align: center;
+    font-size: typo.$team-header-font-size;
+  }
+
+  &-button-container {
+    margin: 58px auto 0 auto;
+    text-align: center;
+  }
+
+  &-back-button {
+    @extend .button;
+    max-width: 105px;
+    padding: 11px;
+    margin-right: 40px;
+    background-color: var.$button-color-black;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  &-button {
+    @extend .button;
+    max-width: 105px;
+    padding: 11px;
+    background-color: var.$button-color-white;
+    color: black;
+    text-decoration: none;
+    border: 1px solid var.$button-color-black;
+    margin-left: 126px;
+  }
+}

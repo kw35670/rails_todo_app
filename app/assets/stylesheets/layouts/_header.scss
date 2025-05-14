@@ -2,93 +2,93 @@
 @use '../base/typography' as typo;
 
 .header {
-    background-color: var.$primary-color;
-    padding: 20px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var.$primary-color;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-    &-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-title {
+    &-text {
+      font-size: typo.$header-font-size;
+      font-weight: typo.$header-font-weight;
+    }
+  }
+
+  &-nav {
+    &-team-link {
+      text-decoration: none;
+      color: black;
+      background-color: white;
     }
 
-    &-title {
-        &-text {
-            font-size: typo.$header-font-size;
-            font-weight: typo.$header-font-weight;
-        }
+    &-user-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    &-nav {
-        &-team-link {
-            text-decoration: none;
-            color: black;
-            background-color: white;
+    &-teams-container {
+      position: relative;
+
+      &:hover {
+        .header-nav-teams {
+          display: block;
         }
 
-        &-user-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .header-nav-teams-title {
+          background-color: rgba(255, 255, 255, 0.2);
         }
-
-        &-teams-container {
-            position: relative;
-
-            &:hover {
-                .header-nav-teams {
-                    display: block;
-                }
-
-                .header-nav-teams-title {
-                    background-color: rgba(255, 255, 255, 0.2);
-                }
-            }
-        }
-
-        &-teams-title {
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        &-teams {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: white;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 8px 0;
-            min-width: 200px;
-            z-index: 1000;
-
-            .user-team-nav {
-                padding: 8px 16px;
-                transition: background-color 0.3s ease;
-                cursor: pointer;
-                list-style: none;
-
-                &:hover {
-                    background-color: #f5f5f5;
-                }
-            }
-        }
-
-        &-user {
-            display: inline-block;
-        }
-
-        &-link {
-            display: inline-block;
-            text-decoration: none;
-            color: black;
-            transition: all 0.3s ease;
-            background-color: var.$primary-color;
-
-            &:hover {
-                opacity: 0.5;
-            }
-        }
+      }
     }
+
+    &-teams-title {
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    &-teams {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 8px 0;
+      min-width: 200px;
+      z-index: 1000;
+
+      .user-team-nav {
+        padding: 8px 16px;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+        list-style: none;
+
+        &:hover {
+          background-color: #f5f5f5;
+        }
+      }
+    }
+
+    &-user {
+      display: inline-block;
+    }
+
+    &-link {
+      display: inline-block;
+      text-decoration: none;
+      color: black;
+      transition: all 0.3s ease;
+      background-color: var.$primary-color;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
 }
