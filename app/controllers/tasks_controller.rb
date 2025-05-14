@@ -5,10 +5,10 @@ class TasksController < ApplicationController
   def index
     @team ||= current_user.last_joined_team if current_user
     @tasks = if @team
-      Task.for_team(@team.id)
-    else
-      Task.for_user_teams(current_user)
-    end
+               Task.for_team(@team.id)
+             else
+               Task.for_user_teams(current_user)
+             end
   end
 
   def show
@@ -21,6 +21,10 @@ class TasksController < ApplicationController
   def edit
   end
 
+  def edit
+    @task = Task.find(params[:id])
+  end
+
   def create
     @task = Task.new(task_params)
     @task.created_user = current_user.nickname
@@ -31,10 +35,6 @@ class TasksController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
-    @task = Task.find(params[:id])
   end
 
   def update
@@ -62,6 +62,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :status, :team_id)
+    params.expect(task: [:name, :status, :team_id])
   end
 end

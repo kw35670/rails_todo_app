@@ -5,20 +5,12 @@ class Task < ApplicationRecord
   validates :name, presence: true, length: { minimum: 1, maximum: 100 }
   validates :status, presence: true
 
-  enum :status, [:not_started, :in_progress, :completed]
+  enum :status, { not_started: 0, in_progress: 1, completed: 2 }
 
   after_initialize :set_default_status, if: :new_record?
 
   scope :for_team, ->(team_id) { where(team_id: team_id) }
   scope :for_user_teams, ->(user) { where(team_id: user.teams.pluck(:id)) }
-
-  def display_name
-    if name.length > 10
-      name[0..8] + "..."
-    else
-      name
-    end
-  end
 
   private
 

@@ -31,9 +31,9 @@
     <div class="task-edit-form-select-container">
       <%= f.label :team_id, "チーム", class: "task-edit-form-label" %>
       <%= f.select :team_id,
-                current_user.teams.map { |team| [team.display_name, team.id] },
+                current_user.teams.map { |team| [team.name, team.id] },
                 { selected: @task.team_id },
-                { class: "task-edit-form-select" } %>
+                { class: "task-edit-form-team-select" } %>
     </div>
     <div class="task-edit-form-button-container">
       <%= link_to '戻る', @team ? team_tasks_path(@team) : tasks_path, class: 'task-edit-form-back-button' %>

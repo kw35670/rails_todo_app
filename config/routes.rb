@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :tasks
   resources :teams
 
+  get 'teams/invite/:invite_token', to: 'teams#invite', as: :invite_team
+  post 'teams/invite/:invite_token/join', to: 'teams#join', as: :join_team
+
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
