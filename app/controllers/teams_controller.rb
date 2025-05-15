@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   # skip_before_action :verify_authenticity_token, only: [:join]
+  before_action :authenticate_user!
 
   def new
     @team = Team.new

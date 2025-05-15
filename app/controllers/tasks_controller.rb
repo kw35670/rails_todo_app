@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_team, only: [:index, :new, :create]
+  before_action :check_team_membership, only: [:index, :new, :create, :destroy]
+  before_action :authenticate_user!
 
   def index
     @team ||= current_user.last_joined_team if current_user
@@ -58,10 +60,17 @@ class TasksController < ApplicationController
   end
 
   def set_team
-    @team = Team.find(params[:team_id]) if params[:team_id]
+    @team = Team.find_by(id: params[:team_id]) if params[:team_id]
+  end
+
+  def check_team_membership
+    return unless @team
+    return if current_user.teams.include?(@team)
+
+    redirect_to root_path, alert: 'そのチームに所属していないため、アクセスできません'
   end
 
   def task_params
-    params.expect(task: [:name, :status, :team_id])
+    params.require(:task).permit(:name, :status, :team_id)
   end
 end

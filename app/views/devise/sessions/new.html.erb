@@ -1,40 +1,40 @@
 <div class="login-container container">
-    <%= form_with scope: resource, as: resource_name, url: session_path(resource_name), class: "login-form", local: true do |f| %>
+  <%= form_with scope: resource, as: resource_name, url: session_path(resource_name), class: "login-form", local: true do |f| %>
 
-    <h2 class="login-title">Ruby_todo_app</h2>
+  <h2 class="login-title">Ruby_todo_app</h2>
 
-    <% if notice %>
-    <div class="notice-message">
-        <%= notice %>
-    </div>
-    <% end %>
+  <% if notice %>
+  <div class="devise-notice-message">
+    <%= notice %>
+  </div>
+  <% end %>
 
-    <% if alert %>
-    <div class="error-message-list">
-        <li class="error-message">
-            <%= alert %>
-        </li>
-    </div>
-    <% end %>
+  <% if alert %>
+  <div class="error-message-list">
+    <li class="devise-error-message">
+      <%= alert %>
+    </li>
+  </div>
+  <% end %>
 
-    <div class="login-form-field">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "login-form-field-input", placeholder: "ID(メールアドレス)" %>
-    </div>
+  <div class="login-form-field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "login-form-field-input", placeholder: "ID(メールアドレス)" %>
+  </div>
 
-    <div class="login-form-field">
-        <%= f.password_field :password, autocomplete: "password", class: "login-form-field-input", placeholder: "パスワード" %>
-    </div>
+  <div class="login-form-field">
+    <%= f.password_field :password, autocomplete: "password", class: "login-form-field-input", placeholder: "パスワード" %>
+  </div>
 
-    <button type="submit" class="login-form-button">
-        <%= f.submit "ログイン" %>
-    </button>
+  <button type="submit" class="login-form-button">
+    <%= f.submit "ログイン" %>
+  </button>
 
-    <div class="login-form-forgot-password">
-        パスワードを忘れた方は<%= link_to "こちら", new_password_path(resource_name), class: "login-form-forgot-password-link" %>
-    </div>
+  <div class="login-form-forgot-password">
+    パスワードを忘れた方は<%= link_to "こちら", new_password_path(resource_name), class: "login-form-forgot-password-link" %>
+  </div>
 
-    <div class="login-form-signup">
-        <%= link_to "アカウント作成", new_registration_path(resource_name), class: "login-form-button" %>
-    </div>
-    <% end %>
+  <div class="login-form-signup">
+    <%= link_to "アカウント作成", new_registration_path(resource_name), class: "login-form-button" %>
+  </div>
+  <% end %>
 </div>

@@ -15,42 +15,40 @@ User.delete_all
 Team.delete_all
 
 # チームの作成
-team1 = Team.create!(name: "開発チーム")
-team2 = Team.create!(name: "デザインチーム")
+team1 = Team.find_or_create_by!(name: "開発チーム")
+team2 = Team.find_or_create_by!(name: "デザインチーム")
 
 # ユーザーの作成
-user1 = User.create!(
-  email: "user1@example.com",
-  password: "password",
-  password_confirmation: "password",
-  nickname: "ユーザー1"
-)
+user1 = User.find_or_create_by!(email: "user1@example.com") do |user|
+  user.password = "password"
+  user.password_confirmation = "password"
+  user.nickname = "ユーザー1"
+end
 
-user2 = User.create!(
-  email: "user2@example.com",
-  password: "password",
-  password_confirmation: "password",
-  nickname: "ユーザー2"
-)
+user2 = User.find_or_create_by!(email: "user2@example.com") do |user|
+  user.password = "password"
+  user.password_confirmation = "password"
+  user.nickname = "ユーザー2"
+end
 
 # チームとユーザーの関連付け
-TeamUser.create!(
+TeamUser.find_or_create_by!(
   team: team1,
   user: user1
 )
 
-TeamUser.create!(
+TeamUser.find_or_create_by!(
   team: team1,
   user: user2
 )
 
-TeamUser.create!(
+TeamUser.find_or_create_by!(
   team: team2,
   user: user1
 )
 
 # タスクの作成
-Task.create!(
+Task.find_or_create_by!(
   name: "フロントエンド開発",
   status: :in_progress,
   team: team1,
@@ -58,7 +56,7 @@ Task.create!(
   update_user: user1.nickname
 )
 
-Task.create!(
+Task.find_or_create_by!(
   name: "バックエンド開発",
   status: :not_started,
   team: team1,
@@ -66,7 +64,7 @@ Task.create!(
   update_user: user2.nickname
 )
 
-Task.create!(
+Task.find_or_create_by!(
   name: "UIデザイン",
   status: :completed,
   team: team2,

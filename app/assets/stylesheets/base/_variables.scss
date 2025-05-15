@@ -13,7 +13,11 @@ $error-font-color: #f01e1e;
 
 // Notice Colors
 $notice-font-color: #007bff;
-$notice-background-color: #e3f2fd;
+$notice-background-color: adjust-color($notice-font-color, $lightness: 40%);
+
+// Alert Colors
+$alert-font-color: #f01e1e;
+$alert-background-color: adjust-color($alert-font-color, $lightness: 40%);
 
 // Input Padding
 $input-padding: 7px;

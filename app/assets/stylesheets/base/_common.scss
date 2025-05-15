@@ -1,8 +1,9 @@
 @use './variables' as var;
 @use './typography' as typo;
+@use '../components/flash' as flash;
 
 .container {
-  width: 100%;
+  width: 80%;
   max-width: 1200px;
   margin: 0 auto;
   .error-message-list {
@@ -20,21 +21,34 @@
     }
   }
 
-  .error-message {
-    color: var.$error-font-color;
-    font-size: typo.$error-font-size;
-    text-align: center;
-    list-style: none;
+  .devise-notice-message {
+    @include flash.devise-flash-message(
+      var.$notice-font-color,
+      typo.$notice-font-size
+    );
+  }
+
+  .devise-error-message {
+    @include flash.devise-flash-message(
+      var.$alert-font-color,
+      typo.$alert-font-size
+    );
   }
 
   .notice-message {
-    margin-top: 10px;
-    color: var.$notice-font-color;
-    font-size: typo.$notice-font-size;
-    text-align: center;
-    background-color: var.$notice-background-color;
-    padding: 10px;
-    border-radius: 4px;
+    @include flash.flash-message(
+      var.$notice-font-color,
+      typo.$notice-font-size,
+      var.$notice-background-color
+    );
+  }
+
+  .alert-message {
+    @include flash.flash-message(
+      var.$alert-font-color,
+      typo.$alert-font-size,
+      var.$alert-background-color
+    );
   }
 
   input {
