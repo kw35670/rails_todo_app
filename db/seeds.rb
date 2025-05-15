@@ -9,10 +9,10 @@
 #   end
 
 # すべてのテーブルのデータを削除
-Task.delete_all
-TeamUser.delete_all
-User.delete_all
-Team.delete_all
+# Task.delete_all
+# TeamUser.delete_all
+# User.delete_all
+# Team.delete_all
 
 # チームの作成
 team1 = Team.find_or_create_by!(name: "開発チーム")
