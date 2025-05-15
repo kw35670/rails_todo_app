@@ -1,0 +1,21 @@
+@use '../base/variables' as var;
+@use '../base/typography' as typo;
+
+@mixin devise-flash-message($color, $font-size) {
+  margin-top: 10px;
+  color: $color;
+  font-size: $font-size;
+  text-align: center;
+  list-style: none;
+}
+
+@mixin flash-message($color, $font-size, $background-color) {
+  margin-top: 10px;
+  color: $color;
+  font-size: $font-size;
+  text-align: center;
+  background-color: $background-color;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid $color;
+}

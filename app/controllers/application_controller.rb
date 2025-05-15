@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!
+  before_action :set_skip_flash
   helper_method :current_user_teams
 
   protected
@@ -12,6 +12,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
     devise_parameter_sanitizer.permit(:account_update,
                                       keys: [:nickname, :email, :password, :password_confirmation, :current_password])
+  end
+
+  def set_skip_flash
+    if devise_controller?
+      @skip_flash = true
+    end
   end
 
   def after_sign_out_path_for(_resource_or_scope)
